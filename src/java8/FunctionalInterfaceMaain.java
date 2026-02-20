@@ -1,5 +1,9 @@
 package java8;
 
+import java.awt.event.ActionListener;
+import java.util.Comparator;
+import java.util.concurrent.Callable;
+
 @FunctionalInterface
 interface Add{
 	//void calculate();
@@ -49,6 +53,14 @@ public class FunctionalInterfaceMaain {
 		Add ab = num -> "Square of number is = " + (num * num);
 		
 		System.out.println(ab.calculate(5));
+		
+		Runnable r = () -> System.out.println("Running Thred");
+		
+		Comparator<Integer> com = (Integer a, Integer b) -> a - b;
+		
+		Callable<Integer> call = () -> 100;
+		
+		ActionListener al = e -> System.out.println("Button Clicked");
 	}
 
 }

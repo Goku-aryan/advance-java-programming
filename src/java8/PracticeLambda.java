@@ -11,8 +11,9 @@ class Voter{
 
 
 @FunctionalInterface
-interface LambdaVote{
-	void vote(int num);
+interface LambdaPalindrome{
+//	void vote(int num);
+	boolean palindrome(String str);
 }
 
 public class PracticeLambda {
@@ -23,19 +24,23 @@ public class PracticeLambda {
 		Scanner sc = new Scanner(System.in);
 		int age = sc.nextInt();
 		
-		LambdaVote a = num -> {
-			if(num>=18) 
-				System.out.println("Can vote");
-			else 
-				System.out.println("Cannot vote");
-			
-				
-		};
-		a.vote(age);
+//		LambdaVote a = num -> {
+//			if(num>=18) 
+//				System.out.println("Can vote");
+//			else 
+//				System.out.println("Cannot vote");
+//			
+//				
+//		};
+//		a.vote(age);
 		
-		Voter v = new Voter();
-		LambdaVote v1 = v::voteChecker;
-		v1.vote(age);
+//		Voter v = new Voter();
+//		LambdaVote v1 = v::voteChecker;
+//		v1.vote(age);
+		
+		LambdaPalindrome lp = str -> new StringBuilder(str).reverse().toString().equals(str);
+		
+		
 	}
 
 }
