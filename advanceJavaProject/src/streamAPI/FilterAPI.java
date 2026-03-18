@@ -15,6 +15,9 @@ public class FilterAPI {
 		//Stream stream = list.stream();
 		list.stream().filter(item -> item > 50).forEach((element)-> System.out.print(element+" "));
 		System.out.println();
+		List<Integer> filteredList = list.stream().filter(i -> i>20 && i<60).toList();
+		System.out.println(filteredList);
+		System.out.println();
 		//list.stream().forEach(System.out::println);
 		System.out.println("Count = " + list.stream().filter((item)-> item > 50).count());
 		
