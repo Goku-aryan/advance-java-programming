@@ -1,5 +1,6 @@
 package streamAPI;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +25,19 @@ public class MinMaxPractice {
 		
 		List<Integer> resultTopThree = list.stream().sorted((a,b) -> b-a).limit(3).toList();
 		System.out.println(resultTopThree);
+		
+		List<Integer> resultSkipTopFive = list.stream().skip(2).limit(3).toList();
+		System.out.println(resultSkipTopFive);
+		
+		List<String> listString = Arrays.asList("Amit","Ravi","Anil","Vikas","Ashok","Rahul");
+		
+		Optional<String> minAlpha= listString.stream().min((a,b) -> a.compareTo(b));
+		minAlpha.ifPresent(System.out::println);
+		
+		Optional<String> maxAlpha= listString.stream().min((a,b) -> b.compareTo(a));
+		maxAlpha.ifPresent(System.out::println);
+		
+		
 	}
 
 }
