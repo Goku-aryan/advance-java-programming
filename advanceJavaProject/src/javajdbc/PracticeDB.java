@@ -20,7 +20,8 @@ public class PracticeDB {
 	            System.out.println("Driver ready");
 	            Connection con = DriverManager.getConnection(host,username, password);
 	            System.out.println("Host is ready");
-	            Statement smt  = con.createStatement();
+	            //Statement smt  = con.createStatement();
+	            Statement smt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 	            smt.execute(create_Table);
 	            System.out.println("Table is ready");
 //	            int rowAffected  = smt.executeUpdate("""
@@ -33,8 +34,17 @@ public class PracticeDB {
 //                 System.out.println("Record was not inserted");
 //             }
             ResultSet rs  = smt.executeQuery("select * from employee");
-            System.out.println(" ID| Name |Dept| Salary");
+            
             while(rs.next()) {
+            	long salary = rs.getLong("salary");
+            	if(salary <= 50000) {
+            		rs.updateDouble("salary", salary*1.1);
+            		rs.updateRow();
+            	}
+            }
+            rs.afterLast();
+            System.out.println(" ID| Name |Dept| Salary");
+            while(rs.previous()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String dept = rs.getString("dept");
