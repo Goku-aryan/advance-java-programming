@@ -23,7 +23,7 @@ public class PracticeDB {
 	            //Statement smt  = con.createStatement();
 	            Statement smt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 	            smt.execute(create_Table);
-	            System.out.println("Table is ready");
+//	            System.out.println("Table is ready");
 //	            int rowAffected  = smt.executeUpdate("""
 //              insert into employee
 //              (name,dept, salary) values('Emp1','IT',45000),('Emp2','IT',40000),('Emp3','IT','60000')
